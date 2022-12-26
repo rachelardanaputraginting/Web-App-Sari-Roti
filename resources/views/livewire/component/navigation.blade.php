@@ -13,9 +13,9 @@
                         </label>
                         <ul tabindex="0"
                             class="menu menu-compact dropdown-content mt-3 p-2 shadow-md bg-base-100 rounded-box w-52 dark:bg-dark shaodow-md">
-                            <li><a class="text-lg hover:rounded-md active:bg-transparent bg-secondary {{ Route::is('/') ? 'font-bold text-primary dark:text-mode' : '' }}"
-                                    href="{{ route('/') }}">Beranda</a></li>
-                            <li><a href="{{ route('produk') }}"
+                            <li><a class="text-lg hover:rounded-md active:bg-transparent bg-secondary {{ Route::is('index') ? 'font-bold text-primary dark:text-mode' : '' }}"
+                                    href="{{ route('index') }}">Beranda</a></li>
+                            <li><a href="{{ route('product') }}"
                                     class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('product*') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a>
                             </li>
                             <li><a href="../#tentang" class="text-lg hover:rounded-md active:bg-transparent">Tentang</a>
@@ -30,9 +30,9 @@
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal p-0 dark:bg-dark">
-                        <li><a class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('/') ? 'font-bold text-primary dark:text-mode' : '' }} {{ Route::is('/') ? 'font-bold text-primary dark:text-mode' : '' }}"
-                                href="{{ route('/') }}">Beranda</a></li>
-                        <li><a href="{{ route('produk') }}"
+                        <li><a class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('index') ? 'font-bold text-primary dark:text-mode' : '' }} {{ Route::is('index') ? 'font-bold text-primary dark:text-mode' : '' }}"
+                                href="{{ route('index') }}">Beranda</a></li>
+                        <li><a href="{{ route('product') }}"
                                 class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('produk*') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a>
                         </li>
                         <li><a href="../#tentang" class="text-lg hover:rounded-md active:bg-transparent">Tentang</a>
@@ -44,17 +44,17 @@
 
                 <div class="navbar-end">
                     @if (Auth::user())
-                        @php
+                        {{-- @php
                             if (!empty(Auth::user()->id)) {
                                 $order = App\Models\CustomerOrder::where('status', 1)
                                     ->where('customer_id', Auth::user()->id)
                                     ->count('customer_id');
                             }
-                        @endphp
+                        @endphp --}}
 
                         @if (Auth::user()->level === 3)
-                            <a href="{{ route('history') }}"
-                                class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('/') ? 'font-bold text-primary dark:text-mode' : '' }} relative"
+                            <a href=""
+                                class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('index') ? 'font-bold text-primary dark:text-mode' : '' }} relative"
                                 onclick="cartFunction()" id="cartNotif"><svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-shopping-cart mr-6 text-primary dark:text-mode" width="28"
                                     height="28" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -72,7 +72,7 @@
                                 @endif
                             </a>
                             <label for="my-modal-2"
-                                class="text-lg hover:rounded-md text-primary {{ Route::is('/') ? 'font-bold text-primary dark:text-mode' : '' }} relative duration-200"
+                                class="text-lg hover:rounded-md text-primary {{ Route::is('index') ? 'font-bold text-primary dark:text-mode' : '' }} relative duration-200"
                                 onclick="notifFunction()" id="label"><svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-bell mr-6 text-primary dark:text-mode" width="28" height="28"
                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -109,12 +109,12 @@
                                 <li>
                                     @if (Auth::user()->level === 1 || Auth::user()->level === 2)
                                         <a class="justify-between text-lg active:bg-transparent"
-                                            href="{{ route('admin.profile', Auth::user()->id) }}">
+                                            href="">
                                             Profil
                                         </a>
                                     @else
                                         <a class="justify-between text-lg active:bg-transparent"
-                                            href="{{ route('profile', Auth::user()->id) }}">
+                                            href="">
                                             Profil
                                         </a>
                                     @endif
@@ -144,6 +144,7 @@
                     @endif
                 </div>
             </div>
+        </x-container>
 
             {{-- modal notifikasi --}}
             @if (!empty(Auth::user()))
@@ -193,6 +194,7 @@
                     document.getElementById("notif").remove()
                     document.getElementById("label").classList.remove('animate-bounce')
                 }
+
                 function cartFunction() {
                     document.getElementById("cart").remove()
                     document.getElementById("cartNotif").classList.remove('animate-bounce')
@@ -200,7 +202,6 @@
                 }
             </script>
 
-        </x-container>
         </div>
     </section>
 

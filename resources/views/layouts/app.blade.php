@@ -19,12 +19,13 @@
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-            @livewire('navigation-menu')
+            @livewire('component.navigation')
 
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
+            @livewire('component.footer')
 
         @stack('modals')
 

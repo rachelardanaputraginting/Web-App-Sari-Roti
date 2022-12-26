@@ -136,14 +136,14 @@
 
     {{-- Product Unggulan --}}
     <section id="product-unggulan" class="py-12 -mt-12">
-        {{-- <div class="text-center pt-24 pb-12 px-4" data-aos="fade-down" data-aos-easing="ease-out-cubic"
+        <div class="text-center pt-24 pb-12 px-4" data-aos="fade-down" data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000">
                 <h2 class="text-4xl text-primary dark:text-secondary">Roti <strong>Unggulan</strong></h2>
                 <p class="text-gray mt-2">Berikut adalah produk unggulan yang kami sajikan untuk kalian semua</p>
             </div>
-            <div class="flex overflow-x-scroll gap-8 scrolling-wrapper"> --}}
-        {{-- @forelse ($best_products as $product) --}}
-        {{-- <div class="w-full md:w-1/4 md:px-4 pb-8" data-aos="fade-up" data-aos-easing="ease-out-cubic"
+            <div class="flex overflow-x-scroll gap-8 scrolling-wrapper">
+        @forelse ($best_products as $product)
+        <div class="w-full md:w-1/4 md:px-4 pb-8" data-aos="fade-up" data-aos-easing="ease-out-cubic"
                         data-aos-duration="2000">
                         <div class="bg-white h-full w-[310px] rounded-md shadow-md mb-4 overflow-hidden dark:bg-dark">
                             <div class="relative">
@@ -153,13 +153,13 @@
                                     class="w-full h-80 md:h-72 mx-auto ">
                             </div>
                             {{-- Form Add Cart --}}
-        {{-- <h4 class=" font-medium text-lg px-4 mt-3 dark:text-mode">{{ $product->name }}</h4>
+        <h4 class=" font-medium text-lg px-4 mt-3 dark:text-mode">{{ $product->name }}</h4>
                             <div class="pt-5 pb-1 text-center px-4 flex justify-between">
                                 <p class="py-2 text-3xl font-semibold text-dark dark:text-secondary">Rp.
-                                    {{ number_format($product->price) }}</p> --}}
+                                    {{ number_format($product->price) }}</p>
 
 
-        {{-- <div class=" bg-primary hover:bg-secondary btn border-none rounded float-right">
+        <div class=" bg-primary hover:bg-secondary btn border-none rounded float-right">
                                     <a href="{{ route('produk.show', $product->id) }}"
                                         class="w-10 text-white font-medium rounded-md">
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -178,10 +178,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
-        {{-- @empty
+                    </div>
+        @empty
                     <p class="mx-auto py-12">Produk tidak ada!</p>
-                @endforelse --}}
+                @endforelse
         </div>
     </section>
     {{-- Akhir Product Unggulan --}}
@@ -440,6 +440,46 @@
                     pesan</p>
             </div>
             <div class="flex flex-wrap ">
+                @forelse ($products as $product)
+        <div class="w-full md:w-1/4 md:px-4 pb-8" data-aos="fade-up" data-aos-easing="ease-out-cubic"
+                        data-aos-duration="2000">
+                        <div class="bg-white h-full w-[310px] rounded-md shadow-md mb-4 overflow-hidden dark:bg-dark">
+                            <div class="relative">
+                                <span
+                                    class="absolute top-0 p-2 opacity-80 text-white bg-primary rounded-br-md  tracking-widest font-medium">{{ $product->stok }}</span>
+                                <img src="{{ asset('storage/' . $product->image) }}" alt=""
+                                    class="w-full h-80 md:h-72 mx-auto ">
+                            </div>
+                            {{-- Form Add Cart --}}
+        <h4 class=" font-medium text-lg px-4 mt-3 dark:text-mode">{{ $product->name }}</h4>
+                            <div class="pt-5 pb-1 text-center px-4 flex justify-between">
+                                <p class="py-2 text-3xl font-semibold text-dark dark:text-secondary">Rp.
+                                    {{ number_format($product->price) }}</p>
+
+
+        <div class=" bg-primary hover:bg-secondary btn border-none rounded float-right">
+                                    <a href="{{ route('produk.show', $product->id) }}"
+                                        class="w-10 text-white font-medium rounded-md">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-eye-check mx-auto" width="24"
+                                            height="24" viewBox="0 0 24 24" stroke-width="2"
+                                            stroke="currentColor" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="12" cy="12" r="2"></circle>
+                                            <path
+                                                d="M12 19c-4 0 -7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7c-.42 .736 -.858 1.414 -1.311 2.033">
+                                            </path>
+                                            <path d="M15 19l2 2l4 -4"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        @empty
+                    <p class="mx-auto py-12">Produk tidak ada!</p>
+                @endforelse
             </div>
             <div class="flex flex-wrap justify-center pt-12">
                 <div class="px-4">
