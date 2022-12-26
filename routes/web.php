@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\Index;
+use App\Http\Livewire\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Halaman Index
+Route::get('/', Index::class)->name('index');
+
+// Halaman Produk
+Route::get('/product', Product::class)->name('product');
 
 Route::middleware([
     'auth:sanctum',

@@ -1,5 +1,6 @@
 <div>
     <section class="w-full bg-white dark:bg-dark">
+        <x-container>
             <div class="navbar">
                 <div class="navbar-start">
                     <div class="dropdown">
@@ -13,8 +14,8 @@
                         <ul tabindex="0"
                             class="menu menu-compact dropdown-content mt-3 p-2 shadow-md bg-base-100 rounded-box w-52 dark:bg-dark shaodow-md">
                             <li><a class="text-lg hover:rounded-md active:bg-transparent bg-secondary {{ Route::is('/') ? 'font-bold text-primary dark:text-mode' : '' }}"
-                                    href="{{ route('index') }}">Beranda</a></li>
-                            <li><a href="{{ route('product') }}"
+                                    href="{{ route('/') }}">Beranda</a></li>
+                            <li><a href="{{ route('produk') }}"
                                     class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('product*') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a>
                             </li>
                             <li><a href="../#tentang" class="text-lg hover:rounded-md active:bg-transparent">Tentang</a>
@@ -30,8 +31,8 @@
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal p-0 dark:bg-dark">
                         <li><a class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('/') ? 'font-bold text-primary dark:text-mode' : '' }} {{ Route::is('/') ? 'font-bold text-primary dark:text-mode' : '' }}"
-                                href="{{ route('index') }}">Beranda</a></li>
-                        <li><a href="{{ route('product') }}"
+                                href="{{ route('/') }}">Beranda</a></li>
+                        <li><a href="{{ route('produk') }}"
                                 class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('produk*') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a>
                         </li>
                         <li><a href="../#tentang" class="text-lg hover:rounded-md active:bg-transparent">Tentang</a>
@@ -41,7 +42,7 @@
                     </ul>
                 </div>
 
-                {{-- <div class="navbar-end">
+                <div class="navbar-end">
                     @if (Auth::user())
                         @php
                             if (!empty(Auth::user()->id)) {
@@ -141,7 +142,7 @@
                                 <path d="M20 12h-13l3 -3m0 6l-3 -3"></path>
                             </svg></a>
                     @endif
-                </div> --}}
+                </div>
             </div>
 
             {{-- modal notifikasi --}}
@@ -192,7 +193,6 @@
                     document.getElementById("notif").remove()
                     document.getElementById("label").classList.remove('animate-bounce')
                 }
-
                 function cartFunction() {
                     document.getElementById("cart").remove()
                     document.getElementById("cartNotif").classList.remove('animate-bounce')
@@ -200,6 +200,7 @@
                 }
             </script>
 
+        </x-container>
         </div>
     </section>
 
