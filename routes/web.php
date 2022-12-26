@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Admin\Index as AdminIndex;
 use App\Http\Livewire\Index;
 use App\Http\Livewire\Product;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', AdminIndex::class)->name('dashboard');
+
+
 });

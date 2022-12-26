@@ -24,10 +24,24 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
+        'google_id',
         'name',
         'email',
         'password',
+        'phone',
+        'address',
+        'image',
+        'level',
     ];
+
+    public function orders() {
+        return $this->hasMany(Order::class);
+    }
+
+    public function customer_orders() {
+        return $this->hasMany(CustomerOrder::class);
+    }
+
 
     /**
      * The attributes that should be hidden for serialization.

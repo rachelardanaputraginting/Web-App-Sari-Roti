@@ -17,17 +17,15 @@
         @livewireStyles
     </head>
     <body>
-        <x-jet-banner />
 
-            @livewire('component.navigation')
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-            @livewire('component.footer')
+        <!-- Page Content -->
+        @livewire('admin.component.navigation')
+        <div  class="dark:bg-dark">
+            {{ $slot }}
+        </div>
+        @livewire('component.footer')
 
-        @stack('modals')
 
         @livewireScripts
     </body>
