@@ -136,6 +136,7 @@
 
     {{-- Product Unggulan --}}
     <section id="product-unggulan" class="py-12 -mt-12">
+        <x-container>
         <div class="text-center pt-24 pb-12 px-4" data-aos="fade-down" data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000">
                 <h2 class="text-4xl text-primary dark:text-secondary">Roti <strong>Unggulan</strong></h2>
@@ -183,11 +184,13 @@
                     <p class="mx-auto py-12">Produk tidak ada!</p>
                 @endforelse
         </div>
+        </x-container>
     </section>
     {{-- Akhir Product Unggulan --}}
 
     {{-- Tentang Kami --}}
     <section class="overflow-hidden min-h-screen py-12" id="tentang">
+    <x-container>
         <div class="flex flex-wrap items-center justify-between">
             <div class="w-full px-4 md:w-1/2">
                 <div class="-mx-3 flex items-center sm:-mx-4">
@@ -403,6 +406,7 @@
                 </div>
             </div>
         </div>
+    </x-container>
     </section>
     {{-- Akhir Tentang Kami --}}
 
@@ -410,6 +414,7 @@
     <section id="kerja-sama" class="py-12 my-24 opacity-90"
         style="background-image: url(https://cdn1.katadata.co.id/media/images/thumb/2016/12/09/2016_12_09-16_55_37_7cd69b1295ae68425cce6baa2a96e987_620x413_thumb.jpg); background-size: cover;"
         data-aos="fade-on">
+    <x-container>
         <div class="flex flex-wrap items-center justify-center">
             <div class="w-full mb-8 md:w-1/3 px-4">
                 <img src="https://upload.wikimedia.org/wikipedia/id/6/67/Sari_Roti-Rotinya_Indonesia.png"
@@ -427,6 +432,7 @@
                     data-aos-duration="2000">
             </div>
         </div>
+    </x-container>
     </section>
     {{-- Akhir Kerja Sama --}}
 
@@ -503,6 +509,7 @@
 
     {{-- Cara Penjualan --}}
     <section id="products" class="py-12">
+        <x-container>
         <div class="text-center pt-24 pb-12 px-4" data-aos="fade-up" data-aos-easing="ease-out-cubic"
             data-aos-duration="2000">
             <h2 class="text-4xl text-primary dark:text-secondary">Seperti Apa Cara Penjualan <strong>Kami</strong>
@@ -600,14 +607,16 @@
                 </div>
             </div>
         </div>
+    </x-container>
     </section>
     {{-- Akhir Cara Penjualan --}}
 
     {{-- Kontak --}}
     <section id="kontak" class="py-12">
+    <x-container>
         <div class="text-center pt-24 pb-12 px-4" data-aos="fade-up" data-aos-easing="ease-out-cubic"
             data-aos-duration="2000">
-            <h2 class="text-4xl text-primary">Hubungi <strong>Kami</strong></h2>
+            <h2 class="text-4xl text-primary dark:text-secondary">Hubungi <strong>Kami</strong></h2>
             <p class="text-gray mt-2">Berikut adalah lokasi dan beberapa sosial media kami</p>
         </div>
         <div class="flex flex-wrap">
@@ -676,6 +685,7 @@
                 </div>
             </div>
         </div>
+    </x-container>
     </section>
     {{-- Akhiir Kontak --}}
 
