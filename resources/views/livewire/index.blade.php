@@ -1,4 +1,5 @@
-<x-guest-layout>
+    @livewire('component.navigation')
+
     {{-- Hero --}}
     <section id="hero" class="py-12">
         <x-container>
@@ -689,5 +690,4 @@
     </section>
     {{-- Akhiir Kontak --}}
 
-
-</x-guest-layout>
+    @livewire('component.footer')

@@ -16,15 +16,15 @@
                             <li><a class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('dashboard') ? 'font-bold text-primary dark:text-mode' : '' }}"
                                     href="{{ route('dashboard') }}">Beranda</a></li>
                             @if (Auth::user()->level === 2)
-                            <li><a href="{{ route('admin.orders') }}"
-                                class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.products') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a>
+                            <li><a href=""
+                                class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.product') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a>
                             </li>
                             @endif
                             <li><a href="{{ route('admin.report') }}"
                                 class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.report') ? 'font-bold text-primary dark:text-mode' : '' }}">Laporan</a>
                             </li>
-                            <li><a href="{{ route('admin.customers') }}"
-                                    class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.customers') ? 'font-bold text-primary dark:text-mode' : '' }}">Pelanggan</a>
+                            <li><a href="{{ route('admin.customer') }}"
+                                    class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.customer') ? 'font-bold text-primary dark:text-mode' : '' }}">Pelanggan</a>
                             </li>
                             <li tabindex="0">
                                 <a class="text-lg justify-between focus:bg-secondary focus:text-red-500">
@@ -39,7 +39,7 @@
                                     <li><a href="{{ route('admin.user') }}" class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.user') ? 'font-bold text-primary dark:text-mode' : '' }}">Pengguna</a></li>
                                     @endif
                                     @if (Auth::user()->level === 2)
-                                        <li><a href="{{ route('admin.products') }}" class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.products') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a></li>
+                                        <li><a href="{{ route('admin.product') }}" class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.product') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a></li>
                                     @endif
                                     <li><a class="text-lg hover:rounded-md">Instansi</a></li>
                                 </ul>
@@ -53,16 +53,16 @@
                         <li><a class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('dashboard') ? 'font-bold text-primary dark:text-mode' : '' }} {{ Route::is('/') ? 'font-bold text-primary' : '' }}"
                                 href="{{ route('dashboard') }}">Beranda</a></li>
                         @if (Auth::user()->level == 2)
-                        <li><a class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.orders') ? 'font-bold text-primary dark:text-mode' : '' }}"
-                            href="{{ route('admin.orders') }}">Produk</a>
+                        <li><a class="text-lg hover:rounded-md active:bg-transparent"
+                            href="">Produk</a>
                         </li>
                         @endif
                         <li><a class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.report') ? 'font-bold text-primary dark:text-mode' : '' }}"
                                 href="{{ route('admin.report') }}">Laporan</a>
                         </li>
                         {{-- @if (Auth::user()->level === 2)
-                        <li><a class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.customers') ? 'font-bold text-primary dark:text-mode' : '' }}"
-                            href="{{ route('admin.customers') }}">Pelanggan</a>
+                        <li><a class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.customer') ? 'font-bold text-primary dark:text-mode' : '' }}"
+                            href="{{ route('admin.customer') }}">Pelanggan</a>
                         </li>
                         @endif --}}
                         <li tabindex="0">
@@ -79,7 +79,7 @@
                                 @endif
                                 @if (Auth::user()->level == 2)
 
-                                <li><a href="{{ route('admin.products') }}" class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.products') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a></li>
+                                <li><a href="{{ route('admin.product') }}" class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.product') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a></li>
                                 @endif --}}
                             </ul>
                         </li>
