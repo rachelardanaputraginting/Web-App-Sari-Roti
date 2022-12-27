@@ -1,8 +1,5 @@
 <div>
-    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
-</div>
 <div class="bg-white dark:bg-dark w-full">
-    <x-container>
         <div class="navbar z-50">
             <div class="navbar-start">
                 <div class="dropdown">
@@ -19,15 +16,15 @@
                                 href="{{ route('admin.dashboard') }}">Beranda</a></li>
                         @if (Auth::user()->level === 2)
                         <li><a href="{{ route('admin.order') }}"
-                            class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.product') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a>
+                            class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.product') ? 'font-bold text-primary dark:text-mode' : '' }}">Pesan</a>
                         </li>
                         @endif
                         <li><a href="{{ route('admin.report') }}"
                             class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.report') ? 'font-bold text-primary dark:text-mode' : '' }}">Laporan</a>
                         </li>
-                        {{-- <li><a href=""
+                        <li><a href=""
                                 class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.customers') ? 'font-bold text-primary dark:text-mode' : '' }}">Pelanggan</a>
-                        </li> --}}
+                        </li>
                         <li tabindex="0">
                             <a class="text-lg justify-between focus:bg-secondary focus:text-red-500">
                                 Pengaturan
@@ -41,7 +38,7 @@
                                 <li><a href="{{ route('admin.user') }}" class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.user') ? 'font-bold text-primary dark:text-mode' : '' }}">Pengguna</a></li>
                                 @endif
                                 @if (Auth::user()->level === 2)
-                                    <li><a href="{{ route('admin.product') }}" class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.product') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a></li>
+                                    <li><a href="{{ route('admin.product') }}" class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.product') ? 'font-bold text-primary dark:text-mode' : '' }}">Pesan</a></li>
                                 @endif
                                 <li><a class="text-lg hover:rounded-md">Instansi</a></li>
                             </ul>
@@ -56,7 +53,7 @@
                             href="{{ route('admin.dashboard') }}">Beranda</a></li>
                     @if (Auth::user()->level == 2)
                     <li><a class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.order') ? 'font-bold text-primary dark:text-mode' : '' }}"
-                        href="{{ route('admin.order') }}">Produk</a>
+                        href="{{ route('admin.order') }}">Pesan</a>
                     </li>
                     @endif
                     <li><a class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.report') ? 'font-bold text-primary dark:text-mode' : '' }}"
@@ -81,7 +78,7 @@
                             @endif
                             @if (Auth::user()->level == 2)
 
-                            <li><a href="{{ route('admin.product') }}" class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.product') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a></li>
+                            <li><a href="{{ route('admin.product') }}" class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.product') ? 'font-bold text-primary dark:text-mode' : '' }}">Pesan</a></li>
                             @endif --}}
                         </ul>
                     </li>
@@ -139,5 +136,5 @@
                 @endauth
             </div>
         </div>
-    </x-container>
     </div>
+</div>

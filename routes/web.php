@@ -8,6 +8,8 @@ use App\Http\Livewire\Admin\Product\Edit as AdminProductEdit;
 use App\Http\Livewire\Admin\Report\Index as AdminReportIndex;
 use App\Http\Livewire\Admin\Order\Index as AdminOrderIndex;
 use App\Http\Livewire\Admin\User\Index as AdminUserIndex;
+use App\Http\Livewire\Admin\Customer\Index as AdminCustomerIndex;
+use App\Http\Livewire\Admin\Customer\Create as AdminCustomerCreate;
 use App\Http\Livewire\Index;
 use Illuminate\Support\Facades\Route;
 
@@ -35,7 +37,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('/admin/product', AdminProductIndex::class)->name('admin.product');
     Route::get('/admin/product/create', AdminProductCreate::class)->name('admin.product.create');
     Route::get('/admin/product/{product}/edit', AdminProductEdit::class)->name('admin.product.edit');
-    // Route::delete('/admin/product/{product}', AdminProductDestroy::class)->name('admin.product.destroy');
 
 
     // Admin Report
@@ -46,7 +47,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
 
 
     // // Admin Customer
-    // Route::get('/admin/customer', AdminCustomer::class)->name('admin.customer');
+    Route::get('/admin/customer', AdminCustomerIndex::class)->name('admin.customer');
+    Route::get('/admin/customer/create', AdminCustomerCreate::class)->name('admin.customer.create');
 
     // // Admin User
     Route::get('/admin/user', AdminUserIndex::class)->name('admin.user');

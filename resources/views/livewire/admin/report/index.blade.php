@@ -1,7 +1,7 @@
 <div>
 
         {{-- breadcumbs --}}
-        <section id="breadcumbs" class="pt-6">
+        <section id="breadcumbs" class="pt-6  px-4">
                 <div class="flex flex-wrap">
                     <div class="w-full px-4">
                         <div class="text-sm breadcrumbs">
