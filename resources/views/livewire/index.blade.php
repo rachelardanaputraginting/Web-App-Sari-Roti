@@ -162,7 +162,7 @@
 
 
         <div class=" bg-primary hover:bg-secondary btn border-none rounded float-right">
-                                    <a href="{{ route('produk.show', $product->id) }}"
+                                    <a href=""
                                         class="w-10 text-white font-medium rounded-md">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             class="icon icon-tabler icon-tabler-eye-check mx-auto" width="24"
@@ -465,7 +465,7 @@
 
 
         <div class=" bg-primary hover:bg-secondary btn border-none rounded float-right">
-                                    <a href="{{ route('produk.show', $product->id) }}"
+                                    <a href=""
                                         class="w-10 text-white font-medium rounded-md">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             class="icon icon-tabler icon-tabler-eye-check mx-auto" width="24"
