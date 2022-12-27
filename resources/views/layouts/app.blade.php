@@ -21,16 +21,23 @@
 <body class="dark:bg-dark">
     <!-- Page Content -->
 
-    @if(Route::is('admin.*'))
+    @if (Route::is('admin.*'))
         @livewire('admin.component.navigation')
-        @else
+    @elseif(Route::is('register') || Route::is('login'))
+    @else
         @livewire('component.navigation')
     @endif
 
     <div class="dark:bg-dark">
         {{ $slot }}
     </div>
-    @livewire('component.footer')
+
+    @if (Route::is('admin.*'))
+        @livewire('component.footer')
+    @elseif(Route::is('register') || Route::is('login'))
+    @else
+        @livewire('component.footer')
+    @endif
 
 
     @livewireScripts

@@ -35,7 +35,6 @@
                         </div>
                         <div class="w-full md:w-1/2 ">
                             <div class="form-control">
-                                @csrf
                                 <div class="form-control">
                                     <label class="input-group">
                                         <input type="search" placeholder="Cari..."

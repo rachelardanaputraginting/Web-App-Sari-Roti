@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('order_id');
-            $table->foreignId('customer_id');
-            $table->date('date');
-            $table->integer('status');
-            $table->integer('price');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('member')->default(1);
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

@@ -4,21 +4,30 @@ namespace App\Http\Livewire\Admin\Customer;
 
 use App\Models\Customer;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
     public $search;
+    protected $queryString = ['search'=> ['except' => '']];
+
+    use WithPagination;
+
+    public function updatingSearch() {
+        $this->resetPage();
+    }
 
     public function render()
     {
-        if (isset($search)) {
-            $customer = Customer::where('name', 'LIKE', '%' . $this->search . '%')->latest()->paginate(8);
-        } else {
-            $customer = Customer::latest()->paginate(8);
+        if ($this->search) {
+            $customers = Customer::where('name','like', '%' . $this->search . '%')
+            ->latest()->paginate(8);
+        }else {
+            $customers = Customer::latest()->paginate(8);
         }
 
         return view('livewire.admin.customer.index', [
-            "customers" => $customer
+            "customers" => $customers
         ]);
     }
 }
