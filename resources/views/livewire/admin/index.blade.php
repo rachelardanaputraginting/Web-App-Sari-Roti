@@ -2,7 +2,6 @@
 
         {{-- breadcumbs --}}
         <section id="breadcumbs" class="pt-6">
-            <x-container>
                 <div class="flex flex-wrap">
                     <div class="w-full px-4">
                         <div class="text-sm breadcrumbs">
@@ -13,13 +12,12 @@
                         </div>
                     </div>
                 </div>
-            </x-container>
+
         </section>
         {{-- Akhir breadcumbs --}}
 
         {{-- Card --}}
         <section id="card" class="py-12">
-            <x-container>
                 <div class="flex px-4 mb-8">
                     <div class="w-full flex items-center bg-white py-2 px-4 shadow-md rounded-md dark:bg-dark">
                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -201,9 +199,8 @@
 
                 </div>
 
-            </x-container>
 
-            <x-container>
+
                 <div class="flex px-4 mb-8 pt-12">
                     <div class="w-full flex items-center bg-white dark:bg-dark py-2 px-4 shadow-md rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -221,7 +218,7 @@
                     <div class="w-full px-4 shadow-md dark:bg-dark" id="grapic">
                     </div>
                 </div>
-            </x-container>
+
 
             <script src="https://code.highcharts.com/highcharts.js"></script>
 
