@@ -120,7 +120,7 @@
                                     @endif
                                 </li>
                                 @if (Auth::user()->level === 1 || Auth::user()->level === 2)
-                                    <li><a href="{{ route('dashboard') }}" class="text-lg active:bg-transparent">Dashboard</a></li>
+                                    <li><a href="{{ route('admin.dashboard') }}" class="text-lg active:bg-transparent">Dashboard</a></li>
                                 @endif
                                 <li>
                                     <form action="{{ route('logout') }}" method="post">

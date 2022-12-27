@@ -7,6 +7,7 @@ use App\Http\Livewire\Admin\Product\Create as AdminProductCreate;
 use App\Http\Livewire\Admin\Product\Edit as AdminProductEdit;
 use App\Http\Livewire\Admin\Report\Index as AdminReportIndex;
 use App\Http\Livewire\Admin\Order\Index as AdminOrderIndex;
+use App\Http\Livewire\Admin\User\Index as AdminUserIndex;
 use App\Http\Livewire\Index;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,7 @@ Route::get('/', Index::class)->name('index');
 Route::get('/product', ProductIndex::class)->name('product');
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
-    Route::get('/dashboard', AdminIndex::class)->name('dashboard');
+    Route::get('admin/dashboard', AdminIndex::class)->name('admin.dashboard');
 
     // Halaman Admin Product
     Route::get('/admin/product', AdminProductIndex::class)->name('admin.product');
@@ -48,7 +49,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     // Route::get('/admin/customer', AdminCustomer::class)->name('admin.customer');
 
     // // Admin User
-    // Route::get('/admin/user', AdminUser::class)->name('admin.user');
+    Route::get('/admin/user', AdminUserIndex::class)->name('admin.user');
 
     // Admin Product
 });

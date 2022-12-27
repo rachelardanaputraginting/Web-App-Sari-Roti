@@ -6,7 +6,7 @@
                 <div class="w-full px-4">
                     <div class="text-sm breadcrumbs">
                         <ul>
-                            <li><a href="{{ route('dashboard') }}">Beranda</a></li>
+                            <li><a href="{{ route('admin.dashboard') }}">Beranda</a></li>
                             <li class="font-semibold">Produk</li>
                         </ul>
                     </div>
@@ -54,7 +54,7 @@
                                 @endif
                             </label>
 
-                            <a href="{{ route('admin.history') }}"><svg xmlns="http://www.w3.org/2000/svg"
+                            <a href=""><svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-history dark:text-secondary" width="32"
                                     height="32" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                                     fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -71,21 +71,17 @@
                         </div>
                         <div class="w-full md:w-1/2 float-right">
                             <div class="form-control">
-                                <form action="{{ route('admin.orders') }}" method="get">
-                                    @csrf
-                                    <div class="input-group">
-                                        <input type="text" placeholder="Cari..."
-                                            class="input input-bordered w-full dark:text-white" name="search" />
-                                        <button class="btn px-6 bg-secondary border-none hover:bg-primary"
-                                            type="submit">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 dark:text-white"
-                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </form>
+                                <label class="input-group ">
+                                    <input type="search" placeholder="Cari..."
+                                        class="input input-bordered w-full dark:text-white " wire:model="search" />
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 dark:text-white"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                        </svg>
+                                    </span>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -111,8 +107,7 @@
 
                                 <div class="pt-5 text-center px-2">
                                     <div class="flex justify-between w-full">
-                                        <form class="w-full flex items-center justify-between" method="post"
-                                            action="{{ route('admin.orders.store', $product->id) }}">
+                                        <form class="w-full flex items-center justify-between" method="post">
                                             @csrf
                                             <div
                                                 class="w-32 mx-1 flex items-center justify-evenly border border-secondary rounded">

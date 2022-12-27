@@ -5,7 +5,7 @@
                 <div class="w-full px-4">
                     <div class="text-sm breadcrumbs">
                         <ul>
-                            <li><a href="{{ route('dashboard') }}">Beranda</a></li>
+                            <li><a href="{{ route('admin.dashboard') }}">Beranda</a></li>
                             <li class="font-semibold">Produk</li>
                         </ul>
                     </div>

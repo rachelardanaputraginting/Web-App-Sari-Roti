@@ -6,7 +6,7 @@
                     <div class="w-full px-4">
                         <div class="text-sm breadcrumbs">
                             <ul>
-                                <li><a href="{{ route('dashboard') }}">Sari Roti</a></li>
+                                <li><a href="{{ route('admin.dashboard') }}">Sari Roti</a></li>
                                 <li class="font-semibold">Beranda</li>
                             </ul>
                         </div>

@@ -15,10 +15,11 @@ class Index extends Component
 
     public function render()
     {
-        if (isset($search)) {
-            $product = Product::with(['order_details'])->where('name', 'LIKE', '%' . $this->search . '%')->get();
-        } else {
-            $product = Product::with(['order_details'])->paginate(8);
+        if ($this->search) {
+            $product = Product::where('name','like', '%' . $this->search . '%')
+            ->latest()->paginate(8);
+        }else {
+            $product = Product::paginate(8);
         }
 
         $order = Order::where('status', 0)
@@ -36,12 +37,6 @@ class Index extends Component
             ->count();
 
         $order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
-        // dd($order);
-        // if (isset($request)) {
-            $user = Customer::where('name', 'LIKE', '%' . $this->search . '%')->get();
-        // } else {
-            // $user = Customer::with(['orders', 'customer_orders'])->where('level', 3)->get();
-        // }
 
         if (isset($this->user)) {
             $user = Customer::where('name', 'LIKE', '%' . $this->user . '%')->get();
@@ -54,7 +49,6 @@ class Index extends Component
             "total_cart" => $total_cart,
             "total_order" => $total_order,
             "order" => $order,
-            "users" => $user
         ]);
     }
 }

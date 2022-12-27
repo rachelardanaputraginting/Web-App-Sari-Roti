@@ -21,7 +21,11 @@
 <body class="dark:bg-dark">
     <!-- Page Content -->
 
-    @livewire('component.navigation')
+    @if(Route::is('admin.*'))
+        @livewire('admin.component.navigation')
+        @else
+        @livewire('component.navigation')
+    @endif
 
     <div class="dark:bg-dark">
         {{ $slot }}

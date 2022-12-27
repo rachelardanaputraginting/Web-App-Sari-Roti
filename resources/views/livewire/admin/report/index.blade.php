@@ -2,24 +2,21 @@
 
         {{-- breadcumbs --}}
         <section id="breadcumbs" class="pt-6">
-            <x-container>
                 <div class="flex flex-wrap">
                     <div class="w-full px-4">
                         <div class="text-sm breadcrumbs">
                             <ul>
-                                <li><a href="{{ route('dashboard') }}">Beranda</a></li>
+                                <li><a href="{{ route('admin.dashboard') }}">Beranda</a></li>
                                 <li class="font-semibold">Laporan</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </x-container>
         </section>
         {{-- Akhir breadcumbs --}}
 
         {{-- cari-laporan --}}
         <section id="cari-laporan" class="py-12">
-            <x-container>
                 <div class="flex flex-wrap px-4 mb-8">
                     <div class="w-full flex items-center bg-white py-2 px-4 shadow-md dark:bg-dark rounded-md text-primary">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clipboard-text dark:text-secondary"
@@ -64,7 +61,6 @@
                             class="px-4 py-2.5 rounded-md text-white bg-secondary mt-6">Tampilkan</button>
                     </div>
                 </form>
-            </x-container>
         </section>
         {{-- akhir-cari-laporan --}}
 
@@ -72,7 +68,6 @@
         @if ($orders)
             {{-- tampilam-laporan --}}
             <section id="akhir-tampilan-laporan">
-                <x-container>
                     <div class="w-full px-4 md:text-center py-4">
                         <h3 class="text-2xl font-semibold">Laporan Penjualan {{ $title }}</h3>
                     </div>
@@ -130,7 +125,6 @@
                             </div>
                         </div>
                     </div>
-                </x-container>
             </section>
             {{-- akhir-tampilam-laporan --}}
         @endif
