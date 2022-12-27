@@ -10,7 +10,7 @@ module.exports = {
     ],
 
     theme: {
-        extend: {
+       extend: {
             fontFamily: {
                 sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
             },

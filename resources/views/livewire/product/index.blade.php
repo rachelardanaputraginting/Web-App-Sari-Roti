@@ -1,4 +1,3 @@
-@livewire('component.navigation')
 <div>
         {{-- breadcumbs --}}
         <section id="breadcumbs" class="py-6">

@@ -7,7 +7,6 @@ use App\Http\Livewire\Admin\Customer as AdminCustomer;
 use App\Http\Livewire\Admin\User as AdminUser;
 use App\Http\Livewire\Product\Index as ProductIndex;
 use App\Http\Livewire\Index;
-use App\Http\Livewire\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +31,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
 
     // Halaman Admin Product
     Route::get('/admin/product', AdminProduct::class)->name('admin.product');
-    Route::get('/admin/product/create'. AdminProduct::class)->name('admin.products.create');
+    Route::get('/admin/product/create', AdminProduct::class)->name('admin.products.create');
     Route::post('/admin/product', AdminProduct::class)->name('admin.product.store');
     Route::get('/admin/product/{product}/edit', AdminProduct::class)->name('admin.product.edit');
     Route::put('/admin/product/{product}', AdminProduct::class)->name('admin.product.update');

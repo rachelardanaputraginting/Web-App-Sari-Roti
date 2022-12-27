@@ -1,4 +1,3 @@
-<x-guest-layout>
 <div>
 
         {{-- breadcumbs --}}
@@ -275,4 +274,3 @@
 
 
     </div>
-</x-guest-layout>

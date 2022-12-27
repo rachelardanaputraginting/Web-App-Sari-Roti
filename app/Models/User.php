@@ -18,22 +18,6 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
-    protected $fillable = [
-        'google_id',
-        'name',
-        'email',
-        'password',
-        'phone',
-        'address',
-        'image',
-        'level',
-    ];
-
     public function orders() {
         return $this->hasMany(Order::class);
     }
@@ -42,6 +26,16 @@ class User extends Authenticatable
         return $this->hasMany(CustomerOrder::class);
     }
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
 
     /**
      * The attributes that should be hidden for serialization.

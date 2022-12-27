@@ -33,7 +33,7 @@
                         <li><a class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('index') ? 'font-bold text-primary dark:text-mode' : '' }} {{ Route::is('index') ? 'font-bold text-primary dark:text-mode' : '' }}"
                                 href="{{ route('index') }}">Beranda</a></li>
                         <li><a href="{{ route('product') }}"
-                                class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('produk*') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a>
+                                class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('product*') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a>
                         </li>
                         <li><a href="../#tentang" class="text-lg hover:rounded-md active:bg-transparent">Tentang</a>
                         </li>

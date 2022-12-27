@@ -22,6 +22,6 @@ class Index extends Component
         return view('livewire.index', [
             "products" => Product::limit(8)->latest()->get(),
             "best_products" => $best_product
-        ]);
+        ])->layout('layouts.app');
     }
 }

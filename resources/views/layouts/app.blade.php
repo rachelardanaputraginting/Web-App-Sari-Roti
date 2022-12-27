@@ -19,12 +19,12 @@
 </head>
 
 <body class="dark:bg-dark">
-
-
     <!-- Page Content -->
+    @livewire('component.navigation')
     <div class="dark:bg-dark">
         {{ $slot }}
     </div>
+    @livewire('component.footer')
 
 
     @livewireScripts
