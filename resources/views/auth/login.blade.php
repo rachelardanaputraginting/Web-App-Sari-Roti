@@ -39,7 +39,7 @@
             <hr class="text-gray bg-gray">
             <div class="text-center my-2">
                 <a class="text-sm text-gray-600 hover:text-gray-900 text-center text-white mx-auto my-2"
-                    href="{{ route('login') }}">
+                    href="{{ route('register') }}">
                     {{ __('Belum Registrasi? Silahkan Registrasi.') }}
                 </a>
             </div>

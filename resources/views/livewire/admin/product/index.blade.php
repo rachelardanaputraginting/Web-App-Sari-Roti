@@ -55,7 +55,7 @@
             </div>
             <div class="w-full px-4">
                 <div class="pt-2 pb-4 ">
-                    <a href="r{{ route('admin.product.create') }}" class="px-3 py-2.5 text-white bg-green-500 rounded-md">Tambah Data</a>
+                    <a href="{{ route('admin.product.create') }}" class="px-3 py-2.5 text-white bg-green-500 rounded-md">Tambah Data</a>
                 </div>
             </div>
             <div class="flex overflow-x-scroll scrolling-wrapper">
@@ -85,7 +85,7 @@
                                         <td>{{ $product->stok }}</td>
                                         <td>
                                             <a href="{{ route('admin.product.edit', $product->id) }}"
-                                                class="btn btn-sm bg-secondary text-white"><svg
+                                                class="btn btn-sm bg-secondary text-white border-none"><svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     class="icon icon-tabler icon-tabler-edit-circle" width="22"
                                                     height="22" viewBox="0 0 24 24" stroke-width="2"
@@ -135,10 +135,10 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="px-4">
-                        {{ $products->links('pagination::tailwind') }}
-                    </div>
                 </div>
+            </div>
+            <div class="flex justify-between px-4">
+                {{ $products->links('pagination::tailwind') }}
             </div>
 
 

@@ -23,6 +23,7 @@
 
     @if (Route::is('admin.*'))
         @livewire('admin.component.navigation')
+        {{-- @livewire('admin.component.sidebar') --}}
     @elseif(Route::is('register') || Route::is('login'))
     @else
         @livewire('component.navigation')

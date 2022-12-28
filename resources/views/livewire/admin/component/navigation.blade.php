@@ -4,7 +4,7 @@
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        <svg xmlns="http://www.w3.org/2000/svg" for="my-drawer-4" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h8m-8 6h16" />
@@ -73,13 +73,13 @@
                             </svg>
                         </a>
                         <ul class="p-2 bg-white dark:bg-dark shadow-md z-50 rounded-md">
-                            {{-- @if (Auth::user()->level === 1 || Auth::user()->level == 2)
+                            @if (Auth::user()->level === 1 || Auth::user()->level == 2)
                             <li><a href="{{ route('admin.user') }}" class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.user') ? 'font-bold text-primary dark:text-mode' : '' }}">Pengguna</a></li>
                             @endif
                             @if (Auth::user()->level == 2)
 
-                            <li><a href="{{ route('admin.product') }}" class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.product') ? 'font-bold text-primary dark:text-mode' : '' }}">Pesan</a></li>
-                            @endif --}}
+                            <li><a href="{{ route('admin.product') }}" class="text-lg hover:rounded-md active:bg-transparent {{ Route::is('admin.product') ? 'font-bold text-primary dark:text-mode' : '' }}">Produk</a></li>
+                            @endif
                         </ul>
                     </li>
                 </ul>
