@@ -36,7 +36,6 @@ class Create extends Component
             $validateData['image'] = $this->image->storeAs('products', $image);
         }
 
-
         Product::create($validateData);
 
         return redirect()->route('admin.product');

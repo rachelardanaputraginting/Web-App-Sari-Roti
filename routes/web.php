@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminCustomerController;
+use App\Http\Controllers\RajaOngkirController;
 use App\Http\Livewire\Admin\Index as AdminIndex;
 use App\Http\Livewire\Product\Index as ProductIndex;
 use App\Http\Livewire\Admin\Product\Index as AdminProductIndex;
@@ -8,6 +10,7 @@ use App\Http\Livewire\Admin\Product\Edit as AdminProductEdit;
 use App\Http\Livewire\Admin\Report\Index as AdminReportIndex;
 use App\Http\Livewire\Admin\Order\Index as AdminOrderIndex;
 use App\Http\Livewire\Admin\User\Index as AdminUserIndex;
+use App\Http\Livewire\Admin\User\Create as AdminUserCreate;
 use App\Http\Livewire\Admin\Customer\Index as AdminCustomerIndex;
 use App\Http\Livewire\Admin\Customer\Create as AdminCustomerCreate;
 use App\Http\Livewire\Index;
@@ -52,6 +55,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
 
     // // Admin User
     Route::get('/admin/user', AdminUserIndex::class)->name('admin.user');
+    Route::get('/admin/user/create', AdminUserCreate::class)->name('admin.user.create');
+
 
     // Admin Product
 });

@@ -96,7 +96,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.customers.show', $customer->id) }}"
+                                        <a href=""
                                             class="btn btn-sm btn-success text-white"><svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 class="icon icon-tabler icon-tabler-eye-check" width="24"
@@ -164,4 +164,8 @@
         </div>
         {{-- akhir semua pelanggan --}}
     @endif
+
+
+
+    </body>
 </div>

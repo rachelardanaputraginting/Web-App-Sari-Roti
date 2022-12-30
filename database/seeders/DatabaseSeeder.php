@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call(LocationsSeeder::class);
 
         Product::create([
             "name" => "Cokelat Susu",

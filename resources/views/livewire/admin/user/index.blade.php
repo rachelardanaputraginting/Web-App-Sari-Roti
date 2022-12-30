@@ -56,11 +56,10 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="w-full px-4">
                     <div class="pt-2 pb-4 ">
-                        <a href=""
+                        <a href="{{ route('admin.user.create') }}"
                             class="px-3 py-2.5 text-white bg-green-500 rounded-md">Tambah Data</a>
                     </div>
                 </div>
