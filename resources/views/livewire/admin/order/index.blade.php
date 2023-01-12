@@ -242,6 +242,7 @@
                                             @forelse ($order_details as $order_detail)
                                                 <tr>
                                                     <th>{{ $loop->iteration }}</th>
+                                                    <th>{{ $order_detail->total_price }}</th>
                                                     <td>{{ $order_detail->product->name }}
                                                         <div
                                                             class="w-32 flex mt-4 items-center justify-evenly border border-secondary rounded">
@@ -359,10 +360,15 @@
                                 <form action="" method="post">
                                     @csrf
                                     <div class="w-full">
-                                        <select name="customer_id" id="customer_id"
+                                        <select name="customer_name" id="customer_name"
                                             class="select select-bordered w-full">
-                                            <option selected disabled>-- Pilih Pembeli --</option>
-                                            <option value="">Rachel</option>
+                                            {{-- <option><input type="text" wire:model="customer_name" --}}
+                                            {{-- class="input input-bordered"></option> --}}
+                                            <option></option>
+                                            @foreach ($customers as $customer)
+                                                <option value="{{ $customer->id }}">{{ $customer->name }}</option>
+                                            @endforeach
+
                                         </select>
                                     </div>
                                     <div class="w-full py-4">
@@ -426,3 +432,13 @@
     </div>
     {{-- Akhir Modal Hapus --}}
 </div>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#customer_name').select2({
+            placeholder: 'Pilih Pelanggan',
+            allowClear: true
+        });
+    });
+</script>

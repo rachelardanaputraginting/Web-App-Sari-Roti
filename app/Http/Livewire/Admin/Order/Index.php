@@ -50,8 +50,10 @@ class Index extends Component
         if (!empty($order)) {
             $order_details = OrderDetail::with(['order', 'product'])->where('order_id', $order->id)->get();
         } else {
-            $order_details = 0;
+            $order_details = OrderDetail::all();
         }
+
+        $customers = Customer::latest()->get();
 
         return view('livewire.admin.order.index', [
             "products" => $product,
@@ -59,6 +61,7 @@ class Index extends Component
             "total_order" => $total_order,
             "order" => $order,
             "order_details" => $order_details,
+            "customers" => $customers,
         ]);
     }
 }

@@ -101,7 +101,7 @@
                                                     d="M9 7.07a7.002 7.002 0 0 0 1 13.93a7.002 7.002 0 0 0 6.929 -5.999">
                                                 </path>
                                             </svg></a>
-                                        <button wire:click="delete({{ $product->id }})"
+                                        <label for="delete-product"
                                             class="btn btn-sm bg-danger border-none text-white"><svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 class="icon icon-tabler icon-tabler-trash" width="22" height="22"
@@ -117,7 +117,27 @@
                                                 <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12">
                                                 </path>
                                                 <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
-                                            </svg></button>
+                                            </svg></label>
+
+                                        {{-- Modal Hapus --}}
+                                        <input type="checkbox" id="delete-product"
+                                            class="modal-toggle bg-transparent" />
+                                        <div class="modal w-64 mx-auto bg-transparent">
+                                            <div class="modal-box relative shadow-md">
+                                                <label for="my-modal-3"
+                                                    class="dark:text-secondary hover:text-secondary text-secondary p-1 rounded-full absolute right-2 top-2">✕</label>
+                                                <h3 class="text-lg font-semibold mb-5 text-center">Anda
+                                                    Yakin?
+                                                </h3>
+                                                <div class="flex gap-4 justify-center items-center">
+                                                    <button type="submit" wire:click="delete({{ $product->id }})"
+                                                        class="w-20 bg-success py-2 rounded-md text-white">Ya</button>
+                                                    <label for="my-modal-3"
+                                                        class="text-center w-20 bg-error py-2 rounded-md text-white">Tidak</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- Akhir Modal Hapus --}}
                                     </td>
                                 </tr>
                             @empty
@@ -137,4 +157,6 @@
 
     </section>
     {{-- akhir semua Produk --}}
+
+
 </div>
