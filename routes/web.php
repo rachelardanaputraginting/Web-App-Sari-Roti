@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminCustomerController;
+use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\RajaOngkirController;
 use App\Http\Livewire\Admin\Index as AdminIndex;
 use App\Http\Livewire\Product\Index as ProductIndex;
@@ -33,7 +35,7 @@ Route::get('/', Index::class)->name('index');
 // Halaman Produk
 Route::get('/product', ProductIndex::class)->name('product');
 
-Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('admin/dashboard', AdminIndex::class)->name('admin.dashboard');
 
     // Halaman Admin Product
@@ -47,6 +49,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
 
     // Admin Order
     Route::get('/admin/order/', AdminOrderIndex::class)->name('admin.order');
+
+    Route::post('/admin/order/{product}', [AdminOrderController::class, 'store'])->name('admin.orders.store');
 
 
     // // Admin Customer

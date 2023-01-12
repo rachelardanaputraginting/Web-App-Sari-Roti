@@ -13,7 +13,8 @@ class Create extends Component
         return view('livewire.admin.product.create');
     }
 
-    public function updatingSearch() {
+    public function updatingSearch()
+    {
         $this->resetPage();
     }
 
@@ -40,5 +41,4 @@ class Create extends Component
 
         return redirect()->route('admin.product');
     }
-
 }

@@ -3,11 +3,13 @@
 namespace App\Http\Livewire\Admin\Order;
 
 use App\Models\Customer;
+use App\Models\CustomerOrder;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\Request;
 
 class Index extends Component
 {
@@ -16,9 +18,9 @@ class Index extends Component
     public function render()
     {
         if ($this->search) {
-            $product = Product::where('name','like', '%' . $this->search . '%')
-            ->latest()->paginate(8);
-        }else {
+            $product = Product::where('name', 'like', '%' . $this->search . '%')
+                ->latest()->paginate(8);
+        } else {
             $product = Product::paginate(8);
         }
 
@@ -44,11 +46,19 @@ class Index extends Component
             $user = Customer::latest()->get();
         }
 
+        $order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
+        if (!empty($order)) {
+            $order_details = OrderDetail::with(['order', 'product'])->where('order_id', $order->id)->get();
+        } else {
+            $order_details = 0;
+        }
+
         return view('livewire.admin.order.index', [
             "products" => $product,
             "total_cart" => $total_cart,
             "total_order" => $total_order,
             "order" => $order,
+            "order_details" => $order_details,
         ]);
     }
 }

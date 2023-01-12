@@ -18,11 +18,11 @@ class Create extends Component
 
         $provinces = Province::get();
         if ($this->province) {
-                $cities = City::where('province_id', $this->province)->get();
-        }else {
+            $cities = City::where('province_id', $this->province)->get();
+        } else {
             $cities = City::get();
         }
-    return view('livewire.admin.customer.create', [
+        return view('livewire.admin.customer.create', [
             "provinces" => $provinces,
             "cities" => $cities
         ]);
@@ -41,7 +41,7 @@ class Create extends Component
             "province" => "required",
             "city" => "required",
             "street" => "required",
-            "image" => "file|image:max:1024|required"
+            "image" => "image|max:1024|required"
         ]);
 
         $province = Province::where('province_id', $this->province)->first();

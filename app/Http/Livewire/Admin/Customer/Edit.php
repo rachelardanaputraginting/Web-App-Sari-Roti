@@ -10,4 +10,5 @@ class Edit extends Component
     {
         return view('livewire.admin.customer.edit');
     }
+    
 }

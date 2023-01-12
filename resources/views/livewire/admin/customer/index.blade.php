@@ -80,12 +80,12 @@
                                 <tr>
                                     <th>{{ $loop->iteration }}</th>
                                     <td>{{ $customer->name }}</td>
-                                    {{-- @php
+                                    @php
                                         $order = App\Models\Order::where('customer_id', $customer->id)
                                             ->where('status', 1)
                                             ->sum('total_order_price');
-                                    @endphp --}}
-                                    {{-- <td><strong> Rp. {{ $order }}</strong></td> --}}
+                                    @endphp
+                                    <td><strong> Rp. {{ $order }}</strong></td>
                                     <td>
                                         @if ($customer->member === 2)
                                             <span class="bg-purple-500 rounded-full text-white  px-4 py-2">Anggur</span>
@@ -96,8 +96,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href=""
-                                            class="btn btn-sm btn-success text-white"><svg
+                                        <a href="" class="btn btn-sm btn-success text-white"><svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 class="icon icon-tabler icon-tabler-eye-check" width="24"
                                                 height="24" viewBox="0 0 24 24" stroke-width="2"

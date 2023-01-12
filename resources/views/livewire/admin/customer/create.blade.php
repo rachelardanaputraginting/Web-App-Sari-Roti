@@ -111,7 +111,6 @@
                             @if ($image)
                                 <img src="{{ $image->temporaryUrl() }}" class="w-20 mb-2 rounded-md">
                             @endif
-                            <div wire:loading wire:target="image">Preview..</div>
                             <input type="file"
                                 class="w-full rounded-md file-input file-input-bordered @error('image') border-red-500 @enderror"
                                 value="{{ old('image') }}" wire:model="image">
@@ -131,9 +130,7 @@
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-    <script>
-
-    </script>
+    <script></script>
 
     {{-- <script>
         $(document).ready(function() {
