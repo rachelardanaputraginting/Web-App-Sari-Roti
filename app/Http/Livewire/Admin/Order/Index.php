@@ -64,4 +64,23 @@ class Index extends Component
             "customers" => $customers,
         ]);
     }
+
+    public function delete($id)
+    {
+        $orderDetail = OrderDetail::where('product_id', $id)->first();
+        $checkOrder = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
+
+        if (!empty($checkOrder)) {
+            $dataOrder['user_id'] = Auth::user()->id;
+            $dataOrder['customer_id'] = 0;
+            $dataOrder['order_date'] = now();
+            $dataOrder['status'] = 0;
+            $dataOrder['total_order_price'] = $checkOrder->total_order_price - $orderDetail->total_price;
+            Order::where('id', $checkOrder->id)->update($dataOrder);
+        }
+
+        OrderDetail::where('product_id', $id)->delete();
+
+        return redirect()->back();
+    }
 }

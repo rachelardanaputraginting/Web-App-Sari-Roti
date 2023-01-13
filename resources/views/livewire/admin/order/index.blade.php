@@ -242,7 +242,6 @@
                                             @forelse ($order_details as $order_detail)
                                                 <tr>
                                                     <th>{{ $loop->iteration }}</th>
-                                                    <th>{{ $order_detail->total_price }}</th>
                                                     <td>{{ $order_detail->product->name }}
                                                         <div
                                                             class="w-32 flex mt-4 items-center justify-evenly border border-secondary rounded">
@@ -303,7 +302,8 @@
                                                         {{ number_format($order_detail->total_price) }}
                                                     </td>
                                                     <td>
-                                                        <label for="my-modal-3" type="submit"
+                                                        <button type="submit"
+                                                            wire:click="delete({{ $order_detail->product_id }})"
                                                             class="btn btn-sm btn-error text-white"><svg
                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                 class="icon icon-tabler icon-tabler-trash"
@@ -327,13 +327,14 @@
                                                                 </path>
                                                                 <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3">
                                                                 </path>
-                                                            </svg></label>
+                                                            </svg></button>
+
                                                     </td>
                                                 </tr>
 
                                             @empty
                                                 <tr>
-                                                    <td colspan="5" align="center">Belum ada pelanggan</td>
+                                                    <td colspan="5" align="center">Belum ada pesanan</td>
                                                 </tr>
                                             @endforelse
                                             <tr>
@@ -409,27 +410,24 @@
 
     {{-- Akhir Modal Cart --}}
 
-
     {{-- Modal Hapus --}}
-    <input type="checkbox" id="my-modal-3" class="modal-toggle bg-transparent" />
-    <div class="modal w-64 mx-auto bg-transparent">
-        <div class="modal-box relative shadow-md">
-            <label for="my-modal-3"
-                class="dark:text-secondary hover:text-secondary text-secondary p-1 rounded-full absolute right-2 top-2">✕</label>
-            <h3 class="text-lg font-semibold mb-5 text-center">Anda
-                Yakin?
-            </h3>
-            <div class="flex gap-4 justify-center items-center">
-                <form @if (!empty($order_detail)) action="" @endif method="post">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="w-20 bg-success py-2 rounded-md text-white">Ya</button>
-
-                </form>
-                <label for="my-modal-3" class="text-center w-20 bg-error py-2 rounded-md text-white">Tidak</label>
+    {{-- @if (!empty($order_detail))
+        <input type="checkbox" id="my-modal-3" class="modal-toggle bg-transparent" />
+        <div class="modal w-64 mx-auto bg-transparent">
+            <div class="modal-box relative shadow-md">
+                <label for="my-modal-3"
+                    class="dark:text-secondary hover:text-secondary text-secondary p-1 rounded-full absolute right-2 top-2">✕</label>
+                <h3 class="text-lg font-semibold mb-5 text-center">Anda
+                    Yakin?
+                </h3>
+                <div class="flex gap-4 justify-center items-center">
+                    <button type="submit" wire:click="delete({{ $order_detail->product_id }})"
+                        class="w-20 bg-success py-2 rounded-md text-white">Ya</button>
+                    <label for="my-modal-3" class="text-center w-20 bg-error py-2 rounded-md text-white">Tidak</label>
+                </div>
             </div>
         </div>
-    </div>
+    @endif --}}
     {{-- Akhir Modal Hapus --}}
 </div>
 
