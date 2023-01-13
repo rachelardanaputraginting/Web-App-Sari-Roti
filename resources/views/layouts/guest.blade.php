@@ -20,6 +20,8 @@
 <body class="dark:bg-dark">
     @yield('content')
     @livewireScripts
+
+
 </body>
 
 </html>

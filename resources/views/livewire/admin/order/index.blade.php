@@ -295,8 +295,6 @@
                                                                 </svg></button>
                                                         </div>
                                                     </td>
-
-
                                                     <td>Rp. {{ number_format($order_detail->product->price) }}</td>
                                                     <td align="right">Rp.
                                                         {{ number_format($order_detail->total_price) }}

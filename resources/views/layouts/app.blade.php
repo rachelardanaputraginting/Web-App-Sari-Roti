@@ -19,6 +19,9 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
 
+    {{-- AOS Animate --}}
+    <link rel="stylesheet" href="{{ asset('assets/aos-master/dist/aos.css') }}">
+
     <!-- Styles -->
     @livewireStyles
 </head>
@@ -47,6 +50,28 @@
 
 
     @livewireScripts
+
+    <script>
+        const mouseWheel = document.querySelector('.scrolling-wrapper');
+
+        // Add wheel function
+        mouseWheel.addEventListener('wheel', function(e) {
+
+            const race = 30; // <= set scroll mouse move the wheels
+
+            if (e.deltaY > 0) // <= Scroll right
+                mouseWheel.scrollLeft += race;
+            else // Scroll left
+                mouseWheel.scrollLeft -= race;
+            e.preventDefault();
+        });
+    </script>
+
+    <script src="{{ asset('assets/aos-master/dist/aos.js') }}"></script>
+
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
