@@ -14,9 +14,17 @@ use Livewire\Request;
 class Index extends Component
 {
     public $search;
-
+    public $customer_id;
+    public $customer_name;
     public function render()
     {
+        if ($this->customer_name) {
+            $customers = Customer::where('name', 'like', '%' . $this->customer_name . '%')
+                ->latest()->paginate(8);
+        } else {
+            $customers = Customer::latest()->get();
+        }
+
         if ($this->search) {
             $product = Product::where('name', 'like', '%' . $this->search . '%')
                 ->latest()->paginate(8);
@@ -39,21 +47,11 @@ class Index extends Component
             ->count();
 
         $order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
-
-        if (isset($this->user)) {
-            $user = Customer::where('name', 'LIKE', '%' . $this->user . '%')->get();
-        } else {
-            $user = Customer::latest()->get();
-        }
-
-        $order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
         if (!empty($order)) {
             $order_details = OrderDetail::with(['order', 'product'])->where('order_id', $order->id)->get();
         } else {
             $order_details = OrderDetail::all();
         }
-
-        $customers = Customer::latest()->get();
 
         return view('livewire.admin.order.index', [
             "products" => $product,
@@ -82,5 +80,45 @@ class Index extends Component
         OrderDetail::where('product_id', $id)->delete();
 
         return redirect()->back();
+    }
+
+
+    public function store()
+    {
+        dd($this->customer_id);
+        $order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
+        $dataOrder['customer_id'] = $this->customer_id;
+        $dataOrder['status'] = 1;
+        Order::where('id', $order->id)->update($dataOrder);
+
+        $customerOrder = CustomerOrder::with(['order', 'user'])->where('user_id', Auth::user()->id)->where('status', 0)->first();
+        $dataCustomerOrder['customer_id'] = $this->customer_id;
+        $dataCustomerOrder['status'] = 1;
+        CustomerOrder::where('id', $customerOrder->id)->update($dataCustomerOrder);
+
+        $detailOrders = OrderDetail::where('order_id', $order->id)->get();
+        foreach ($detailOrders as $detailOrder) {
+            $product = Product::with(['order_details'])->where('id', $detailOrder->product_id)->first();
+            $dataProduct['stok'] = $product->stok - $detailOrder->order_quantity;
+            Product::where('id', $product->id)->update($dataProduct);
+        }
+
+        $order_price = CustomerOrder::with(['order', 'user'])->where('customer_id', 1)->where('status', 1)->sum('price');
+        // dd($order_price);
+        // dd($order_price->total_order_price);
+
+        if ($order_price >= 200000) {
+            $dataLevelCokelat['member'] = 3;
+            Customer::where('id', $this->customer_id)->update($dataLevelCokelat);
+        } elseif ($order_price >= 100000 && $order_price < 200000) {
+            $dataLevelAnggur['member'] = 2;
+            Customer::where('id', $this->customer_id)->update($dataLevelAnggur);
+        } elseif ($order_price < 100000) {
+            $dataLevelPandan['member'] = 1;
+            Customer::where('id', $this->customer_id)->update($dataLevelPandan);
+        }
+
+
+        return redirect('/admin/history');
     }
 }

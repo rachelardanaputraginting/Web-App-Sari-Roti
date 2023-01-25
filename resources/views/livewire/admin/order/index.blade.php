@@ -356,24 +356,27 @@
                                 </div>
                             </div>
                             <div class="w-full md:w-1/3 px-4 pt-8">
-                                <form action="" method="post">
-                                    @csrf
+                                <div class="w-full">
+                                    <input type="text" wire:model="customer_name"
+                                        class="input input-bordered w-full font-bold rounded-b-none"
+                                        placeholder="Cari Pelanggan..">
+                                </div>
+                                <form wire:submit.prevent="store" method="post">
                                     <div class="w-full">
-                                        <select name="customer_name" id="customer_name"
-                                            class="select select-bordered w-full">
-                                            {{-- <option><input type="text" wire:model="customer_name" --}}
-                                            {{-- class="input input-bordered"></option> --}}
-                                            <option></option>
-                                            @foreach ($customers as $customer)
+                                        <select wire:model="customer_id" id="customer_id" name="customer_id"
+                                            class="select select-bordered w-full rounded-t-none">
+                                            @forelse ($customers as $customer)
                                                 <option value="{{ $customer->id }}">{{ $customer->name }}</option>
-                                            @endforeach
+                                            @empty
+                                                <option>Pelanggan tidak ada!</option>
+                                            @endforelse
 
                                         </select>
                                     </div>
                                     <div class="w-full py-4">
                                         <label class="input-group">
                                             <span class="font-bold">Rp.</span>
-                                            <input type="text"
+                                            <input type="text" readonly
                                                 value="{{ number_format($order->total_order_price) }}"
                                                 class="input input-bordered w-full font-bold">
                                         </label>
@@ -430,11 +433,11 @@
 </div>
 
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     $(document).ready(function() {
-        $('#customer_name').select2({
+        $('#customer_id').select2({
             placeholder: 'Pilih Pelanggan',
             allowClear: true
         });
     });
-</script>
+</script> --}}
