@@ -85,13 +85,12 @@ class Index extends Component
 
     public function store()
     {
-        dd($this->customer_id);
         $order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
         $dataOrder['customer_id'] = $this->customer_id;
         $dataOrder['status'] = 1;
         Order::where('id', $order->id)->update($dataOrder);
 
-        $customerOrder = CustomerOrder::with(['order', 'user'])->where('user_id', Auth::user()->id)->where('status', 0)->first();
+        $customerOrder = CustomerOrder::where('user_id', Auth::user()->id)->where('status', 0)->first();
         $dataCustomerOrder['customer_id'] = $this->customer_id;
         $dataCustomerOrder['status'] = 1;
         CustomerOrder::where('id', $customerOrder->id)->update($dataCustomerOrder);
@@ -103,7 +102,7 @@ class Index extends Component
             Product::where('id', $product->id)->update($dataProduct);
         }
 
-        $order_price = CustomerOrder::with(['order', 'user'])->where('customer_id', 1)->where('status', 1)->sum('price');
+        $order_price = CustomerOrder::where('customer_id', 1)->where('status', 1)->sum('price');
         // dd($order_price);
         // dd($order_price->total_order_price);
 

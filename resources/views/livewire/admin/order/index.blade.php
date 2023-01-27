@@ -365,6 +365,7 @@
                                     <div class="w-full">
                                         <select wire:model="customer_id" id="customer_id" name="customer_id"
                                             class="select select-bordered w-full rounded-t-none">
+                                            <option class="opacity-50">Pilih Pelanggan</option>
                                             @forelse ($customers as $customer)
                                                 <option value="{{ $customer->id }}">{{ $customer->name }}</option>
                                             @empty

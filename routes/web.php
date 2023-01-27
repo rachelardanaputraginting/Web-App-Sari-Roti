@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminCustomerController;
 use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\AdminReportController;
 use App\Http\Controllers\RajaOngkirController;
 use App\Http\Livewire\Admin\Index as AdminIndex;
 use App\Http\Livewire\Product\Index as ProductIndex;
@@ -45,7 +46,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
 
     // Admin Report
-    Route::get('/admin/report/', AdminReportIndex::class)->name('admin.report');
+    // Route::get('/admin/report/', AdminReportIndex::class)->name('admin.report');
+    Route::get('/admin/report', [AdminReportController::class, 'index'])->name('admin.report');
+    Route::get('/admin/report/{report}/{for}/print', [AdminReportController::class, 'print'])->name('admin.report.print');
 
     // Admin Order
     Route::get('/admin/order/', AdminOrderIndex::class)->name('admin.order');
