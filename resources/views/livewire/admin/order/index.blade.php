@@ -54,7 +54,7 @@
                             @endif
                         </label>
 
-                        <a href=""><svg xmlns="http://www.w3.org/2000/svg"
+                        <a href="{{ route('admin.history') }}"><svg xmlns="http://www.w3.org/2000/svg"
                                 class="icon icon-tabler icon-tabler-history dark:text-secondary" width="32"
                                 height="32" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                 stroke-linecap="round" stroke-linejoin="round">

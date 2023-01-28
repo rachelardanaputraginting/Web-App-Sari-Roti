@@ -10,8 +10,8 @@ use App\Http\Livewire\Product\Index as ProductIndex;
 use App\Http\Livewire\Admin\Product\Index as AdminProductIndex;
 use App\Http\Livewire\Admin\Product\Create as AdminProductCreate;
 use App\Http\Livewire\Admin\Product\Edit as AdminProductEdit;
-use App\Http\Livewire\Admin\Report\Index as AdminReportIndex;
 use App\Http\Livewire\Admin\Order\Index as AdminOrderIndex;
+use App\Http\Livewire\Admin\History\Index as AdminHistoryIndex;
 use App\Http\Livewire\Admin\User\Index as AdminUserIndex;
 use App\Http\Livewire\Admin\User\Create as AdminUserCreate;
 use App\Http\Livewire\Admin\Customer\Index as AdminCustomerIndex;
@@ -46,7 +46,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
 
     // Admin Report
-    // Route::get('/admin/report/', AdminReportIndex::class)->name('admin.report');
     Route::get('/admin/report', [AdminReportController::class, 'index'])->name('admin.report');
     Route::get('/admin/report/{report}/{for}/print', [AdminReportController::class, 'print'])->name('admin.report.print');
 
@@ -55,8 +54,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
     Route::post('/admin/order/{product}', [AdminOrderController::class, 'store'])->name('admin.orders.store');
 
+    // Admin Historiy
+    Route::get('/admin/history', AdminHistoryIndex::class)->name('admin.history');
 
-    // // Admin Customer
+    // Admin Customer
     Route::get('/admin/customer', AdminCustomerIndex::class)->name('admin.customer');
     Route::get('/admin/customer/create', AdminCustomerCreate::class)->name('admin.customer.create');
 

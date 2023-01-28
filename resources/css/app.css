@@ -48,3 +48,13 @@ body {
 .shadow-md {
     @apply shadow;
 }
+
+@media print {
+    .navbar {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+}
