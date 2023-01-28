@@ -37,25 +37,19 @@
                                 </svg>
                                 <h2 class="px-4 font-semibold py-4 text-2xl dark:text-secondary">Riwayat Pemesanan</h2>
                             </div>
-                            <div class="w-full md:w-1/2 float-right">
+                            <div class="w-full md:w-1/2 ">
                                 <div class="form-control">
-                                    <form method="get">
-                                        @csrf
-                                        <div class="input-group">
-                                            <input type="text" placeholder="Search…" name="search"
-                                                class="input input-bordered w-full dark:text-white"
-                                                value="{{ request('search') }}" />
-                                            <button type="submit"
-                                                class="btn px-6 bg-secondary border-none hover:bg-primary">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 dark:text-white"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </form>
+                                    <label class="input-group">
+                                        <input type="search" placeholder="Cari..."
+                                            class="input input-bordered w-full dark:text-white" wire:model="search" />
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 dark:text-white"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                            </svg>
+                                        </span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -80,8 +74,8 @@
                                 @forelse ($orders as $order)
                                     <tr>
                                         <th>{{ $loop->iteration }}</th>
-                                        <td>{{ $order->customer->name }}</td>
-                                        <td>{{ $order->user->name }}</td>
+                                        <td>{{ $order->customer_name }}</td>
+                                        <td>{{ $order->user_name }}</td>
                                         <td>{{ Carbon\Carbon::parse($order->order_date)->translatedFormat('d F Y') }}
                                         </td>
                                         <td>
@@ -91,7 +85,7 @@
                                                 <div class="badge badge-warning text-white">Belum Membayar</div>
                                             @endif
                                         </td>
-                                        <td>Rp. {{ number_format($order->total_order_price) }}</td>
+                                        <td>Rp. {{ number_format($order->total_price) }}</td>
                                         <td>
                                             <a href="" class="btn btn-sm btn-success text-white mb-2">
                                                 <svg xmlns="http://www.w3.org/2000/svg"
